@@ -1,8 +1,14 @@
 import java.util.ArrayList;
 
 public abstract class Usuario {
+    private int idUsuario;
     private String nome;
     private String endereco;
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
     private String telefone;
 
 
