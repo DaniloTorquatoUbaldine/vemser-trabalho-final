@@ -1,22 +1,22 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClienteManipulacao {
+public class ClienteManipulacao implements Manipulacao {
     private List<Cliente> listaDeCliente;
 
     public ClienteManipulacao() {
         this.listaDeCliente = new ArrayList<>();
     }
 
-    public void adicionarCliente(Cliente pessoa) {
+    public void adicionar(Cliente pessoa) {
         this.listaDeCliente.add(pessoa);
     }
 
-    public void removerClientePorIndice(Integer index) {
+    public void remover(Integer index) {
         this.listaDeCliente.remove(index.intValue());
     }
 
-    public void editarCliente(Integer index, Cliente pessoa) {
+    public void editar(Integer index, Cliente pessoa) {
         Cliente pessoaProcurada = listaDeCliente.get(index);
         pessoaProcurada.setCpf(pessoa.getCpf());
         pessoaProcurada.setNome(pessoa.getNome());
@@ -24,9 +24,11 @@ public class ClienteManipulacao {
         pessoaProcurada.setEndereco(pessoa.getEndereco());
     }
 
-    public void listarPessoas() {
+    public void listar() {
         for (int i = 0; i < listaDeCliente.size(); i++) {
+            //this.imprimir();
             System.out.println("id=" + i + " | " + " Nome: " +  listaDeCliente.get(i).getNome() + " | " + " CPF: " + listaDeCliente.get(i).getCpf() +  " Enderço: "  + listaDeCliente.get(i).getEndereco() + " | " + " telefone: " +listaDeCliente.get(i).getTelefone());
         }
     }
+
 }

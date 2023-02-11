@@ -1,22 +1,22 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class MedicoManipulacao {
+public class MedicoManipulacao implements Manipulacao {
     private List<Medico> listaDeMedico;
 
     public MedicoManipulacao() {
         this.listaDeMedico = new ArrayList<>();
     }
 
-    public void adicionarMedico(Medico pessoa) {
+    public void adicionar(Medico pessoa) {
         this.listaDeMedico.add(pessoa);
     }
 
-    public void removerMedicoPorIndice(Integer index) {
+    public void remover(Integer index) {
         this.listaDeMedico.remove(index.intValue());
     }
 
-    public void editarMedico(Integer index, Medico pessoa) {
+    public void editar(Integer index, Medico pessoa) {
         Medico pessoaProcurada = listaDeMedico.get(index);
         pessoaProcurada.setNome(pessoa.getNome());
         pessoaProcurada.setEndereco(pessoa.getEndereco());
@@ -24,7 +24,7 @@ public class MedicoManipulacao {
         pessoaProcurada.setCrm(pessoa.getCrm());
     }
 
-    public void listarPessoas() {
+    public void listar() {
         for (int i = 0; i < listaDeMedico.size(); i++) {
             System.out.println("id=" + i + " | " + " Nome: " +  listaDeMedico.get(i).getNome() + " | " + " Codigo do administrativo: " + listaDeMedico.get(i).getCrm() +  " Enderço: "  + listaDeMedico.get(i).getEndereco() + " | " + " telefone: " + listaDeMedico.get(i).getTelefone());
         }

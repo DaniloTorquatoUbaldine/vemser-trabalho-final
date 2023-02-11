@@ -3,6 +3,8 @@ public class Convenio {
     private String cadastroDoConvenioNoOragaoRegulador;
     private double taxaDeAbatimentoNaConsulta;
 
+
+
     public Convenio(){
 
     }

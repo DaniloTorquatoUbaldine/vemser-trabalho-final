@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Especialidades> listaDeEspecialidades = new ArrayList<>();
-
+        ArrayList<Convenio> listaDeConvenios = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         int escolha = -1;
         while (escolha != 9) {
@@ -45,14 +45,14 @@ public class Main {
                                             pessoa.setTelefone(scanner.nextLine());
                                             System.out.println("Digite o cpf do cliente");
                                             pessoa.setCpf(scanner.nextLine());
-                                            clienteManipulacao.adicionarCliente(pessoa);
+                                            clienteManipulacao.adicionar(pessoa);
                                             break;
                                         case 2:
-                                            clienteManipulacao.listarPessoas();
+                                            clienteManipulacao.listar();
                                             break;
                                         case 3:
                                             System.out.println("Qual cliente você deseja editar?");
-                                            clienteManipulacao.listarPessoas();
+                                            clienteManipulacao.listar();
                                             int index = scanner.nextInt();
                                             scanner.nextLine();
 
@@ -65,13 +65,13 @@ public class Main {
                                             pessoaNova.setEndereco(scanner.nextLine());
                                             System.out.println("Digite o telefone");
                                             pessoaNova.setTelefone(scanner.nextLine());
-                                            clienteManipulacao.editarCliente(index, pessoaNova);
+                                            clienteManipulacao.editar(index, pessoaNova);
                                             break;
                                         case 4:
                                             System.out.println("Qual cliente você deseja excluir?");
-                                            clienteManipulacao.listarPessoas();
+                                            clienteManipulacao.listar();
                                             int id = scanner.nextInt();
-                                            clienteManipulacao.removerClientePorIndice(id);
+                                            clienteManipulacao.remover(id);
                                             break;
                                         case 9:
                                             break;
@@ -103,14 +103,14 @@ public class Main {
                                             pessoa.setTelefone(scanner.nextLine());
                                             System.out.println("Digite a mátricula da pessoa");
                                             pessoa.setCodigoDoAdministrativo(scanner.nextLine());
-                                            administrativoManipulacao.adicionarAdministrativo(pessoa);
+                                            administrativoManipulacao.adicionar(pessoa);
                                             break;
                                         case 2:
-                                            administrativoManipulacao.listarPessoas();
+                                            administrativoManipulacao.listar();
                                             break;
                                         case 3:
                                             System.out.println("Qual pessoa do administrativo você deseja editar?");
-                                            administrativoManipulacao.listarPessoas();
+                                            administrativoManipulacao.listar();
                                             int index = scanner.nextInt();
                                             scanner.nextLine();
 
@@ -123,13 +123,13 @@ public class Main {
                                             pessoaNova.setEndereco(scanner.nextLine());
                                             System.out.println("Digite o telefone");
                                             pessoaNova.setTelefone(scanner.nextLine());
-                                            administrativoManipulacao.editarCliente(index, pessoaNova);
+                                            administrativoManipulacao.editar(index, pessoaNova);
                                             break;
                                         case 4:
                                             System.out.println("Qual administrativo você deseja excluir?");
-                                            administrativoManipulacao.listarPessoas();
+                                            administrativoManipulacao.listar();
                                             int id = scanner.nextInt();
-                                            administrativoManipulacao.removerClientePorIndice(id);
+                                            administrativoManipulacao.remover(id);
                                             break;
                                         case 9:
                                             break;
@@ -161,14 +161,14 @@ public class Main {
                                             pessoa.setTelefone(scanner.nextLine());
                                             System.out.println("Digite o CRM do médico");
                                             pessoa.setCrm(scanner.nextLine());
-                                            medicoManipulacao.adicionarMedico(pessoa);
+                                            medicoManipulacao.adicionar(pessoa);
                                             break;
                                         case 2:
-                                            medicoManipulacao.listarPessoas();
+                                            medicoManipulacao.listar();
                                             break;
                                         case 3:
                                             System.out.println("Qual médico você deseja editar?");
-                                            medicoManipulacao.listarPessoas();
+                                            medicoManipulacao.listar();
                                             int index = scanner.nextInt();
                                             scanner.nextLine();
 
@@ -181,13 +181,13 @@ public class Main {
                                             pessoaNova.setEndereco(scanner.nextLine());
                                             System.out.println("Digite o telefone");
                                             pessoaNova.setTelefone(scanner.nextLine());
-                                            medicoManipulacao.editarMedico(index, pessoaNova);
+                                            medicoManipulacao.editar(index, pessoaNova);
                                             break;
                                         case 4:
                                             System.out.println("Qual médico você deseja excluir?");
-                                            medicoManipulacao.listarPessoas();
+                                            medicoManipulacao.listar();
                                             int id = scanner.nextInt();
-                                            medicoManipulacao.removerMedicoPorIndice(id);
+                                            medicoManipulacao.remover(id);
                                             break;
                                         case 9:
                                             break;
@@ -220,14 +220,15 @@ public class Main {
                                     System.out.println("Digite a taxa de abatimento do plano (0 a 1)");
                                     pessoa.setTaxaDeAbatimentoNaConsulta(scanner.nextDouble());
                                     scanner.nextLine();
-                                    convenioManipulacao.adicionarConvenio(pessoa);
+                                    listaDeConvenios.add(pessoa);
+                                    convenioManipulacao.adicionar(pessoa);
                                     break;
                                 case 2:
-                                    convenioManipulacao.listarConvenios();
+                                    convenioManipulacao.listar();
                                     break;
                                 case 3:
                                     System.out.println("Qual cliente você deseja editar?");
-                                    convenioManipulacao.listarConvenios();
+                                    convenioManipulacao.listar();
                                     int index = scanner.nextInt();
                                     scanner.nextLine();
 
@@ -238,13 +239,13 @@ public class Main {
                                     pessoaNova.setCadastroDoConvenioNoOragaoRegulador(scanner.nextLine());
                                     System.out.println("Digite a taxa de abatimento (0 a 1)");
                                     pessoaNova.setTaxaDeAbatimentoNaConsulta(scanner.nextDouble());
-                                    convenioManipulacao.editarConvenio(index, pessoaNova);
+                                    convenioManipulacao.editar(index, pessoaNova);
                                     break;
                                 case 4:
                                     System.out.println("Qual cliente você deseja excluir?");
-                                    convenioManipulacao.listarConvenios();
+                                    convenioManipulacao.listar();
                                     int id = scanner.nextInt();
-                                    convenioManipulacao.removerConvenioPorIndice(id);
+                                    convenioManipulacao.remover(id);
                                     break;
                                 case 9:
                                     break;
@@ -274,7 +275,7 @@ public class Main {
                                     System.out.println("Digite o valor da consulta da especialidade");
                                     pessoa.setValor(scanner.nextDouble());
                                     scanner.nextLine();
-                                    especialidadesManipulacao.adicionarEspecialidade(pessoa);
+                                    especialidadesManipulacao.adicionar(pessoa);
 
                                     listaDeEspecialidades.add(pessoa);
 //                                    for (Especialidades especialidade : listaDeEspecialidades) {
@@ -282,11 +283,11 @@ public class Main {
 //                                    }
                                     break;
                                 case 2:
-                                    especialidadesManipulacao.listarEspecialidades();
+                                    especialidadesManipulacao.listar();
                                     break;
                                 case 3:
                                     System.out.println("Qual especialidade você deseja editar?");
-                                    especialidadesManipulacao.listarEspecialidades();
+                                    especialidadesManipulacao.listar();
                                     int index = scanner.nextInt();
                                     scanner.nextLine();
 
@@ -295,13 +296,13 @@ public class Main {
                                     pessoaNova.setNome(scanner.nextLine());
                                     System.out.println("Digite o valor da consulta da especialidade");
                                     pessoaNova.setValor(scanner.nextDouble());
-                                    especialidadesManipulacao.editarEspecialidade(index, pessoaNova);
+                                    especialidadesManipulacao.editar(index, pessoaNova);
                                     break;
                                 case 4:
                                     System.out.println("Qual cliente você deseja excluir?");
-                                    especialidadesManipulacao.listarEspecialidades();
+                                    especialidadesManipulacao.listar();
                                     int id = scanner.nextInt();
-                                    especialidadesManipulacao.removerEspecialidadePorIndice(id);
+                                    especialidadesManipulacao.remover(id);
                                     break;
                                 case 9:
 
@@ -318,21 +319,93 @@ public class Main {
                 System.out.println("Digite 1 para consulta de valores particular e 2 para consulta de valores convênio.");
                 int escolhaConsulta = scanner.nextInt();
                 scanner.nextLine();
+                String convenio1 = "";
                 if (escolhaConsulta == 2) {
                     System.out.println("Digite o nome do seu plano de saúde");
+                    String escolhaConvenio = scanner.nextLine();
+                    convenio1 =escolhaConvenio;
                 }
                 System.out.println("Digite o nome da especialidade que deseja saber o valor");
                 String escolhaEspecialidade = scanner.nextLine();
                 double choice;
                 double valorDaConsulta = 0.0;
+                double taxa = 0;
+                double valorDoAbatimento = 0;
                 for(Especialidades especialidades : listaDeEspecialidades) {
                     String nome = especialidades.getNome();
                     if (nome.equals(escolhaEspecialidade)) {
                         choice = especialidades.getValor();
                         valorDaConsulta = choice;
                     }
-                    System.out.println("Valor:" + valorDaConsulta);
                 }
+
+                for(Convenio convenio : listaDeConvenios) {
+                    String nome = convenio.getNome();
+                    if (nome.equals(convenio1)) {
+                        taxa = convenio.getTaxaDeAbatimentoNaConsulta();
+                        valorDoAbatimento = taxa;
+                    }
+                }
+                System.out.println("O valor da consulta selecionada, é:" + (valorDaConsulta - (valorDaConsulta * valorDoAbatimento)));
+            }
+            if (escolha == 2) {
+                Cliente agendamento = new Cliente();
+                System.out.println("Digite 1 para agendamento de consulta.\nDigite 2 para agendamento de exame. \nDigite 3 para agendamento de cirurgia.\nDigite 4 para agendamento de tratamento especial.");
+                int escolhaAgenda = scanner.nextInt();
+                scanner.nextLine();
+                if (escolhaAgenda == 1){
+                    System.out.println("Digite o nome do cliente");
+                    String nome = scanner.nextLine();
+                    System.out.println("Digite a especialidade");
+                    String especialidade = scanner.nextLine();
+                    System.out.println("Digite o dia");
+                    String dia = scanner.nextLine().toString();
+                    System.out.println("Digite o horario");
+                    String horario = scanner.nextLine().toString();
+                    agendamento.agendar(nome, dia, horario, especialidade);
+
+                }
+                if (escolhaAgenda == 2){
+                    System.out.println("Digite o nome do cliente");
+                    String nome = scanner.nextLine();
+                    System.out.println("Digite a especialidade");
+                    String especialidade = scanner.nextLine();
+                    System.out.println("Digite o dia");
+                    String dia = scanner.nextLine().toString();
+                    System.out.println("Digite o horario");
+                    String horario = scanner.nextLine().toString();
+                    System.out.println("Digite o exame");
+                    String exame = scanner.nextLine();
+                    agendamento.agendar(nome, dia, horario, especialidade, exame);
+
+                }
+                if (escolhaAgenda == 3){
+                    System.out.println("Digite o nome do cliente");
+                    String nome = scanner.nextLine();
+                    System.out.println("Digite a especialidade");
+                    String especialidade = scanner.nextLine();
+                    System.out.println("Digite o dia");
+                    String dia = scanner.nextLine().toString();
+                    System.out.println("Digite o horario");
+                    String horario = scanner.nextLine().toString();
+                    System.out.println("Digite o tipo de cirurgia");
+                    String cirurgia = scanner.nextLine();
+                    agendamento.agendar(nome, dia, horario, especialidade, cirurgia);
+
+                }
+                if (escolhaAgenda == 4){
+                    System.out.println("Digite o nome do cliente");
+                    String nome = scanner.nextLine();
+                    System.out.println("Digite o dia");
+                    String dia = scanner.nextLine().toString();
+                    System.out.println("Digite o horario");
+                    String horario = scanner.nextLine().toString();
+                    System.out.println("Digite o tipo de tratamento");
+                    String cirurgia = scanner.nextLine();
+                    String tratamento = "Tratamento especial";
+                    agendamento.agendar(tratamento, nome, dia, horario, especialidade, cirurgia);
+                }
+                agendamento.imprimirAgendamentos();
             }
         }
     }
