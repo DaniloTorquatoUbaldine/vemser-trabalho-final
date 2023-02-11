@@ -7,7 +7,7 @@ public class Administrativo extends Usuario{
     private String nome;
     private String endereco;
     private String telefone;
-    private ArrayList<Usuario> usuarios;
+
     final private static String ID_USUARIO = "O id do usuário é: ";
     final private static String ID_ADMINISTRATIVO = "O id da administração do usuário é: ";
     final private static String ID_MATRICULA = "A matrícula é: ";
@@ -24,9 +24,6 @@ public class Administrativo extends Usuario{
         this.telefone = telefone;
     }
 
-    public Administrativo(ArrayList usuarios){
-        this.usuarios = usuarios;
-    }
 
     public void imprimirAdministrativo(){
         System.out.println(ID_USUARIO);
