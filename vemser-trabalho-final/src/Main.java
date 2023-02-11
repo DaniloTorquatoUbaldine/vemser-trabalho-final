@@ -4,9 +4,10 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ArrayList<Especialidades> listaDeEspecialidades = new ArrayList<>();
+
         Scanner scanner = new Scanner(System.in);
         int escolha = -1;
-        while (escolha != 0) {
+        while (escolha != 9) {
             System.out.println("Digite 0 para Cadastros\n" + "Digite 1 para consultas de valores\n" + "Digite 2 para fazer agendamentos.\nDigite 9 para sair.");
             escolha = scanner.nextInt();
             scanner.nextLine();
@@ -274,6 +275,11 @@ public class Main {
                                     pessoa.setValor(scanner.nextDouble());
                                     scanner.nextLine();
                                     especialidadesManipulacao.adicionarEspecialidade(pessoa);
+
+                                    listaDeEspecialidades.add(pessoa);
+//                                    for (Especialidades especialidade : listaDeEspecialidades) {
+//                                        listaDeEspecialidades.add(especialidade);
+//                                    }
                                     break;
                                 case 2:
                                     especialidadesManipulacao.listarEspecialidades();
@@ -298,9 +304,7 @@ public class Main {
                                     especialidadesManipulacao.removerEspecialidadePorIndice(id);
                                     break;
                                 case 9:
-                                    for (Especialidades especialidade : listaDeEspecialidades) {
-                                        listaDeEspecialidades.add(especialidade);
-                                    }
+
                                     break;
                                 default:
                                     System.err.println("opção inválida");
@@ -319,7 +323,16 @@ public class Main {
                 }
                 System.out.println("Digite o nome da especialidade que deseja saber o valor");
                 String escolhaEspecialidade = scanner.nextLine();
-                System.out.println(listaDeEspecialidades.get(0).getNome());
+                double choice;
+                double valorDaConsulta = 0.0;
+                for(Especialidades especialidades : listaDeEspecialidades) {
+                    String nome = especialidades.getNome();
+                    if (nome.equals(escolhaEspecialidade)) {
+                        choice = especialidades.getValor();
+                        valorDaConsulta = choice;
+                    }
+                    System.out.println("Valor:" + valorDaConsulta);
+                }
             }
         }
     }
