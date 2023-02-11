@@ -24,13 +24,7 @@ public class Administrativo extends Usuario{
         this.telefone = telefone;
     }
 
-    public Administrativo(int idUsuario,int idAdministrativo, String matricula, String nome, String endereco, String telefone, ArrayList usuarios){
-        this.idUsuario = idUsuario;
-        this.idAdministrativo = idAdministrativo;
-        this.matricula = matricula;
-        this.nome = nome;
-        this.endereco = endereco;
-        this.telefone = telefone;
+    public Administrativo(ArrayList usuarios){
         this.usuarios = usuarios;
     }
 
