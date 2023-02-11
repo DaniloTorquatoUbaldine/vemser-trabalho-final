@@ -9,7 +9,6 @@ public class ClienteManipulacao {
     }
 
     public void adicionarCliente(Cliente pessoa) {
-        System.out.println(pessoa);
         this.listaDeCliente.add(pessoa);
     }
 
@@ -19,9 +18,7 @@ public class ClienteManipulacao {
 
     public void editarCliente(Integer index, Cliente pessoa) {
         Cliente pessoaProcurada = listaDeCliente.get(index);
-        pessoaProcurada.setIdCliente(pessoa.getIdCliente());
         pessoaProcurada.setCpf(pessoa.getCpf());
-        pessoaProcurada.setIdUsuario(pessoa.getIdUsuario());
         pessoaProcurada.setNome(pessoa.getNome());
         pessoaProcurada.setTelefone(pessoa.getTelefone());
         pessoaProcurada.setEndereco(pessoa.getEndereco());
@@ -29,7 +26,7 @@ public class ClienteManipulacao {
 
     public void listarPessoas() {
         for (int i = 0; i < listaDeCliente.size(); i++) {
-            System.out.println("id=" + i + " | " + listaDeCliente.get(i).getIdCliente() + " " + listaDeCliente.get(i).getNome());
+            System.out.println("id=" + i + " | " + " Nome: " +  listaDeCliente.get(i).getNome() + " | " + " CPF: " + listaDeCliente.get(i).getCpf() +  " Enderço: "  + listaDeCliente.get(i).getEndereco() + " | " + " telefone: " +listaDeCliente.get(i).getTelefone());
         }
     }
 }
