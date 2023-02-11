@@ -6,7 +6,6 @@ public abstract class Usuario {
     private String endereco;
     private String telefone;
 
-
     public int getIdUsuario() {
         return idUsuario;
     }
