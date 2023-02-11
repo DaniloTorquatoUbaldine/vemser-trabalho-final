@@ -1,20 +1,20 @@
 import java.util.ArrayList;
 
-public abstract class usuario {
+public abstract class Usuario {
     private int idUsuario;
     private String nome;
     private String endereco;
     private String telefone;
     private ArrayList<Integer> usuarios;
 
-        public usuario(int idUsuario, String nome, String endereco, String telefone){
+        public Usuario(int idUsuario, String nome, String endereco, String telefone){
             this.idUsuario = idUsuario;
             this.nome = nome;
             this.endereco = endereco;
             this.telefone = telefone;
         }
 
-    public usuario(int idUsuario, String nome, String endereco, String telefone, ArrayList usuarios){
+    public Usuario(int idUsuario, String nome, String endereco, String telefone, ArrayList usuarios){
         this.idUsuario = idUsuario;
         this.nome = nome;
         this.endereco = endereco;
