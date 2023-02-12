@@ -22,6 +22,10 @@ public class EspecialidadesManipulacao implements Manipulacao {
         pessoaProcurada.setValor(pessoa.getValor());
     }
 
+    public List<Especialidades> getListaDeEspecialidades() {
+        return listaDeEspecialidades;
+    }
+
     public void listar() {
         for (int i = 0; i < listaDeEspecialidades.size(); i++) {
             System.out.println("id=" + i + " | " + " Nome: " +  listaDeEspecialidades.get(i).getNome() + " | " + listaDeEspecialidades.get(i).getValor());

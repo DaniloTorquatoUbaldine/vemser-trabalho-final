@@ -3,8 +3,8 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        ArrayList<Especialidades> listaDeEspecialidades = new ArrayList<>();
-        ArrayList<Convenio> listaDeConvenios = new ArrayList<>();
+        ConvenioManipulacao convenioManipulacao = new ConvenioManipulacao();
+        EspecialidadesManipulacao especialidadesManipulacao = new EspecialidadesManipulacao();
         Scanner scanner = new Scanner(System.in);
         int escolha = -1;
         while (escolha != 9) {
@@ -37,6 +37,7 @@ public class Main {
                                     switch (opcao) {
                                         case 1:
                                             Cliente pessoa = new Cliente();
+                                            Convenio convenio = new Convenio();
                                             System.out.println("Digite o nome do cliente");
                                             pessoa.setNome(scanner.nextLine());
                                             System.out.println("Digite o endereço do cliente");
@@ -45,7 +46,14 @@ public class Main {
                                             pessoa.setTelefone(scanner.nextLine());
                                             System.out.println("Digite o cpf do cliente");
                                             pessoa.setCpf(scanner.nextLine());
+                                            System.out.println("Digite o convênio do cliente");
+                                            convenio.setNome(scanner.nextLine());
+                                            System.out.println("Digite o cadastro no orgão regulador do convênio");
+                                            convenio.setCadastroDoConvenioNoOragaoRegulador(scanner.nextLine());
+                                            System.out.println("Digite a taxa de abatimento do convênio");
+                                            convenio.setTaxaDeAbatimentoNaConsulta(scanner.nextDouble());
                                             clienteManipulacao.adicionar(pessoa);
+                                            convenioManipulacao.adicionar(convenio);
                                             break;
                                         case 2:
                                             clienteManipulacao.listar();
@@ -153,6 +161,7 @@ public class Main {
                                     switch (opcao) {
                                         case 1:
                                             Medico pessoa = new Medico();
+                                            Especialidades especialidade = new Especialidades();
                                             System.out.println("Digite o nome médico");
                                             pessoa.setNome(scanner.nextLine());
                                             System.out.println("Digite o endereço do médico");
@@ -161,7 +170,13 @@ public class Main {
                                             pessoa.setTelefone(scanner.nextLine());
                                             System.out.println("Digite o CRM do médico");
                                             pessoa.setCrm(scanner.nextLine());
+                                            System.out.println("Digite a especialidade do médico");
+                                            especialidade.setNome(scanner.nextLine());
+                                            System.out.println("Digite o valor da consulta da especialidade do médico");
+                                            especialidade.setValor(scanner.nextDouble());
+                                            scanner.nextLine();
                                             medicoManipulacao.adicionar(pessoa);
+                                            especialidadesManipulacao.adicionar(especialidade);
                                             break;
                                         case 2:
                                             medicoManipulacao.listar();
@@ -200,7 +215,6 @@ public class Main {
                         }
                     }
                     if (escolhaTipoDeCadastro == 1) {
-                        ConvenioManipulacao convenioManipulacao = new ConvenioManipulacao();
                         int opcao = 0;
                         while (opcao != 9) {
                             System.out.println("Digite 1 para criar convenio");
@@ -220,7 +234,6 @@ public class Main {
                                     System.out.println("Digite a taxa de abatimento do plano (0 a 1)");
                                     pessoa.setTaxaDeAbatimentoNaConsulta(scanner.nextDouble());
                                     scanner.nextLine();
-                                    listaDeConvenios.add(pessoa);
                                     convenioManipulacao.adicionar(pessoa);
                                     break;
                                 case 2:
@@ -257,7 +270,7 @@ public class Main {
                     }
 
                     if (escolhaTipoDeCadastro == 2) {
-                        EspecialidadesManipulacao especialidadesManipulacao = new EspecialidadesManipulacao();
+                        //EspecialidadesManipulacao especialidadesManipulacao = new EspecialidadesManipulacao();
                         int opcao = 0;
                         while (opcao != 9) {
                             System.out.println("Digite 1 para criar especialidade");
@@ -276,11 +289,6 @@ public class Main {
                                     pessoa.setValor(scanner.nextDouble());
                                     scanner.nextLine();
                                     especialidadesManipulacao.adicionar(pessoa);
-
-                                    listaDeEspecialidades.add(pessoa);
-//                                    for (Especialidades especialidade : listaDeEspecialidades) {
-//                                        listaDeEspecialidades.add(especialidade);
-//                                    }
                                     break;
                                 case 2:
                                     especialidadesManipulacao.listar();
@@ -331,7 +339,10 @@ public class Main {
                 double valorDaConsulta = 0.0;
                 double taxa = 0;
                 double valorDoAbatimento = 0;
-                for(Especialidades especialidades : listaDeEspecialidades) {
+
+                //ArrayList<Especialidades> listaDeEspecialidades = convenioManipulacao.;
+                //ArrayList<Convenio> listaDeConvenios = new ArrayList<>();
+                for(Especialidades especialidades : especialidadesManipulacao.getListaDeEspecialidades()) {
                     String nome = especialidades.getNome();
                     if (nome.equals(escolhaEspecialidade)) {
                         choice = especialidades.getValor();
@@ -339,7 +350,8 @@ public class Main {
                     }
                 }
 
-                for(Convenio convenio : listaDeConvenios) {
+
+                for(Convenio convenio : convenioManipulacao.getListaDeConvenio()) {
                     String nome = convenio.getNome();
                     if (nome.equals(convenio1)) {
                         taxa = convenio.getTaxaDeAbatimentoNaConsulta();
@@ -403,12 +415,10 @@ public class Main {
                     System.out.println("Digite o tipo de tratamento");
                     String cirurgia = scanner.nextLine();
                     String tratamento = "Tratamento especial";
-                    agendamento.agendar(tratamento, nome, dia, horario, especialidade, cirurgia);
+                    agendamento.agendar(tratamento, nome, dia, horario, cirurgia);
                 }
                 agendamento.imprimirAgendamentos();
             }
         }
     }
 }
-
-

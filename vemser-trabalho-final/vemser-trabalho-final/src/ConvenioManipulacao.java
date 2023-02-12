@@ -23,6 +23,10 @@ public class ConvenioManipulacao implements Manipulacao {
         pessoaProcurada.setTaxaDeAbatimentoNaConsulta(pessoa.getTaxaDeAbatimentoNaConsulta());
     }
 
+    public List<Convenio> getListaDeConvenio() {
+        return listaDeConvenio;
+    }
+
     public void listar() {
         for (int i = 0; i < listaDeConvenio.size(); i++) {
             System.out.println("id=" + i + " | " + " Nome: " +  listaDeConvenio.get(i).getNome() + " | " + " Código de cadastro no orgão regulador: " + listaDeConvenio.get(i).getCadastroDoConvenioNoOragaoRegulador() +  " Taxa de abatimento na consulta (%): "  + listaDeConvenio.get(i).getTaxaDeAbatimentoNaConsulta());

@@ -1,10 +1,19 @@
 import java.util.ArrayList;
 
 public class Cliente extends Usuario implements Impressao{
+    private Convenio convenio= new Convenio();
     private String cpf;
     ArrayList<String> agendamento =  new ArrayList<>();
     public Cliente() {
 
+    }
+
+    public Convenio getConvenio() {
+        return convenio;
+    }
+
+    public void setConvenio(Convenio convenio) {
+        this.convenio = convenio;
     }
 
     public String getCpf() {
