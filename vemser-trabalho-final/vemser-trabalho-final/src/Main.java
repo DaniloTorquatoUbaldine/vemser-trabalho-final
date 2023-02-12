@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         ConvenioManipulacao convenioManipulacao = new ConvenioManipulacao();
         EspecialidadesManipulacao especialidadesManipulacao = new EspecialidadesManipulacao();
+        Cliente agendamento = new Cliente();
         Scanner scanner = new Scanner(System.in);
         int escolha = -1;
         while (escolha != 9) {
@@ -40,6 +41,8 @@ public class Main {
                                             Convenio convenio = new Convenio();
                                             System.out.println("Digite o nome do cliente");
                                             pessoa.setNome(scanner.nextLine());
+                                            System.out.println("Digite a idade do cliente");
+                                            String idade = scanner.nextLine();
                                             System.out.println("Digite o endereço do cliente");
                                             pessoa.setEndereco(scanner.nextLine());
                                             System.out.println("Digite o telefone do cliente");
@@ -324,11 +327,17 @@ public class Main {
                 }
             }
             if (escolha == 1) {
+                int idade = 0;
                 System.out.println("Digite 1 para consulta de valores particular e 2 para consulta de valores convênio.");
                 int escolhaConsulta = scanner.nextInt();
                 scanner.nextLine();
                 String convenio1 = "";
                 if (escolhaConsulta == 2) {
+                    System.out.println("Digite seu nome");
+                    String nome = scanner.nextLine();
+                    System.out.println("Digite a sua idade");
+                    idade = scanner.nextInt();
+                    scanner.nextLine();
                     System.out.println("Digite o nome do seu plano de saúde");
                     String escolhaConvenio = scanner.nextLine();
                     convenio1 =escolhaConvenio;
@@ -358,10 +367,12 @@ public class Main {
                         valorDoAbatimento = taxa;
                     }
                 }
+                if (idade >= 70){
+                    valorDoAbatimento = valorDoAbatimento - 0.3;
+                }
                 System.out.println("O valor da consulta selecionada, é:" + (valorDaConsulta - (valorDaConsulta * valorDoAbatimento)));
             }
             if (escolha == 2) {
-                Cliente agendamento = new Cliente();
                 System.out.println("Digite 1 para agendamento de consulta.\nDigite 2 para agendamento de exame. \nDigite 3 para agendamento de cirurgia.\nDigite 4 para agendamento de tratamento especial.");
                 int escolhaAgenda = scanner.nextInt();
                 scanner.nextLine();
