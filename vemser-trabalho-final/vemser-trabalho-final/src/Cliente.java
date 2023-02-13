@@ -37,7 +37,6 @@ public class Cliente extends Usuario implements Impressao{
         agendamento.add(horario);
         agendamento.add("|| ");
     }
-
     public void agendar(String nome, String dia, String horario, String especialidade) {
         agendamento.add(nome);
         agendamento.add(dia);
@@ -45,7 +44,6 @@ public class Cliente extends Usuario implements Impressao{
         agendamento.add(especialidade);
         agendamento.add("|| ");
     }
-
     public void agendar(String nome, String dia, String horario, String especialidade, String exame) {
         agendamento.add(nome);
         agendamento.add(dia);
@@ -54,7 +52,6 @@ public class Cliente extends Usuario implements Impressao{
         agendamento.add(exame);
         agendamento.add("|| ");
     }
-
     public void agendar(String tratamento, String nome, String dia, String horario, String especialidade, String exame) {
         agendamento.add(tratamento);
         agendamento.add(nome);

@@ -5,8 +5,16 @@ public class Main {
     public static void main(String[] args) {
         ConvenioManipulacao convenioManipulacao = new ConvenioManipulacao();
         EspecialidadesManipulacao especialidadesManipulacao = new EspecialidadesManipulacao();
+        Medico pessoaMedico = new Medico();
+        Especialidades especialidade = new Especialidades();
+        Administrativo pessoaAdministrativo = new Administrativo();
         Cliente agendamento = new Cliente();
         Scanner scanner = new Scanner(System.in);
+        Cliente pessoaCliente = new Cliente();
+        Convenio convenio = new Convenio();
+        ClienteManipulacao clienteManipulacao = new ClienteManipulacao();
+        AdministrativoManipulacao administrativoManipulacao = new AdministrativoManipulacao();
+        MedicoManipulacao medicoManipulacao = new MedicoManipulacao();
         int escolha = -1;
         while (escolha != 9) {
             System.out.println("Digite 0 para Cadastros\n" + "Digite 1 para consultas de valores\n" + "Digite 2 para fazer agendamentos.\nDigite 9 para sair.");
@@ -25,7 +33,7 @@ public class Main {
                             escolhacadastro = scanner.nextInt();
                             scanner.nextLine();
                             if (escolhacadastro == 0) {
-                                ClienteManipulacao clienteManipulacao = new ClienteManipulacao();
+                                //ClienteManipulacao clienteManipulacao = new ClienteManipulacao();
                                 int opcao = 0;
                                 while (opcao != 9) {
                                     System.out.println("Digite 1 para criar cliente");
@@ -37,25 +45,25 @@ public class Main {
                                     scanner.nextLine();
                                     switch (opcao) {
                                         case 1:
-                                            Cliente pessoa = new Cliente();
-                                            Convenio convenio = new Convenio();
+                                            //Cliente pessoa = new Cliente();
+                                            //Convenio convenio = new Convenio();
                                             System.out.println("Digite o nome do cliente");
-                                            pessoa.setNome(scanner.nextLine());
+                                            pessoaCliente.setNome(scanner.nextLine());
                                             System.out.println("Digite a idade do cliente");
                                             String idade = scanner.nextLine();
                                             System.out.println("Digite o endereço do cliente");
-                                            pessoa.setEndereco(scanner.nextLine());
+                                            pessoaCliente.setEndereco(scanner.nextLine());
                                             System.out.println("Digite o telefone do cliente");
-                                            pessoa.setTelefone(scanner.nextLine());
+                                            pessoaCliente.setTelefone(scanner.nextLine());
                                             System.out.println("Digite o cpf do cliente");
-                                            pessoa.setCpf(scanner.nextLine());
+                                            pessoaCliente.setCpf(scanner.nextLine());
                                             System.out.println("Digite o convênio do cliente");
                                             convenio.setNome(scanner.nextLine());
                                             System.out.println("Digite o cadastro no orgão regulador do convênio");
                                             convenio.setCadastroDoConvenioNoOragaoRegulador(scanner.nextLine());
                                             System.out.println("Digite a taxa de abatimento do convênio");
                                             convenio.setTaxaDeAbatimentoNaConsulta(scanner.nextDouble());
-                                            clienteManipulacao.adicionar(pessoa);
+                                            clienteManipulacao.adicionar(pessoaCliente);
                                             convenioManipulacao.adicionar(convenio);
                                             System.out.println("Cliente adicionado com sucesso.");
 
@@ -68,7 +76,6 @@ public class Main {
                                             clienteManipulacao.listar();
                                             int index = scanner.nextInt();
                                             scanner.nextLine();
-
                                             Cliente pessoaNova = new Cliente();
                                             System.out.println("Digite o novo nome do cliente");
                                             pessoaNova.setNome(scanner.nextLine());
@@ -97,7 +104,7 @@ public class Main {
                                 }
                             }
                             if (escolhacadastro == 1) {
-                                AdministrativoManipulacao administrativoManipulacao = new AdministrativoManipulacao();
+
                                 int opcao = 0;
                                 while (opcao != 9) {
                                     System.out.println("Digite 1 para criar pessoa do administrativo");
@@ -109,16 +116,16 @@ public class Main {
                                     scanner.nextLine();
                                     switch (opcao) {
                                         case 1:
-                                            Administrativo pessoa = new Administrativo();
+                                            //Administrativo pessoa = new Administrativo();
                                             System.out.println("Digite o nome da pessoa");
-                                            pessoa.setNome(scanner.nextLine());
+                                            pessoaAdministrativo.setNome(scanner.nextLine());
                                             System.out.println("Digite o endereço da pessoa");
-                                            pessoa.setEndereco(scanner.nextLine());
+                                            pessoaAdministrativo.setEndereco(scanner.nextLine());
                                             System.out.println("Digite o telefone da pessoa");
-                                            pessoa.setTelefone(scanner.nextLine());
+                                            pessoaAdministrativo.setTelefone(scanner.nextLine());
                                             System.out.println("Digite a mátricula da pessoa");
-                                            pessoa.setCodigoDoAdministrativo(scanner.nextLine());
-                                            administrativoManipulacao.adicionar(pessoa);
+                                            pessoaAdministrativo.setCodigoDoAdministrativo(scanner.nextLine());
+                                            administrativoManipulacao.adicionar(pessoaAdministrativo);
                                             System.out.println("Administrativo adicionado com sucesso.");
                                             break;
                                         case 2:
@@ -129,7 +136,6 @@ public class Main {
                                             administrativoManipulacao.listar();
                                             int index = scanner.nextInt();
                                             scanner.nextLine();
-
                                             Administrativo pessoaNova = new Administrativo();
                                             System.out.println("Digite o novo nome da pessoa");
                                             pessoaNova.setNome(scanner.nextLine());
@@ -158,7 +164,7 @@ public class Main {
                                 }
                             }
                             if (escolhacadastro == 2) {
-                                MedicoManipulacao medicoManipulacao = new MedicoManipulacao();
+                                //MedicoManipulacao medicoManipulacao = new MedicoManipulacao();
                                 int opcao = 0;
                                 while (opcao != 9) {
                                     System.out.println("Digite 1 para criar médico");
@@ -170,22 +176,22 @@ public class Main {
                                     scanner.nextLine();
                                     switch (opcao) {
                                         case 1:
-                                            Medico pessoa = new Medico();
-                                            Especialidades especialidade = new Especialidades();
-                                            System.out.println("Digite o nome médico");
-                                            pessoa.setNome(scanner.nextLine());
+                                            //Medico pessoa = new Medico();
+                                            //Especialidades especialidade = new Especialidades();
+                                            System.out.println("Digite o nome do médico");
+                                            pessoaMedico.setNome(scanner.nextLine());
                                             System.out.println("Digite o endereço do médico");
-                                            pessoa.setEndereco(scanner.nextLine());
+                                            pessoaMedico.setEndereco(scanner.nextLine());
                                             System.out.println("Digite o telefone do médico");
-                                            pessoa.setTelefone(scanner.nextLine());
+                                            pessoaMedico.setTelefone(scanner.nextLine());
                                             System.out.println("Digite o CRM do médico");
-                                            pessoa.setCrm(scanner.nextLine());
+                                            pessoaMedico.setCrm(scanner.nextLine());
                                             System.out.println("Digite a especialidade do médico");
                                             especialidade.setNome(scanner.nextLine());
                                             System.out.println("Digite o valor da consulta da especialidade do médico");
                                             especialidade.setValor(scanner.nextDouble());
                                             scanner.nextLine();
-                                            medicoManipulacao.adicionar(pessoa);
+                                            medicoManipulacao.adicionar(pessoaMedico);
                                             especialidadesManipulacao.adicionar(especialidade);
                                             System.out.println("Médico adicionado com sucesso.");
                                             break;
@@ -383,10 +389,10 @@ public class Main {
                 }
 
 
-                for(Convenio convenio : convenioManipulacao.getListaDeConvenio()) {
-                    String nome = convenio.getNome();
+                for(Convenio convenios : convenioManipulacao.getListaDeConvenio()) {
+                    String nome = convenios.getNome();
                     if (nome.equals(convenio1)) {
-                        taxa = convenio.getTaxaDeAbatimentoNaConsulta();
+                        taxa = convenios.getTaxaDeAbatimentoNaConsulta();
                         valorDoAbatimento = taxa;
                     }
                 }
@@ -403,12 +409,12 @@ public class Main {
                     System.out.println("Digite o nome do cliente");
                     String nome = scanner.nextLine();
                     System.out.println("Digite a especialidade");
-                    String especialidade = scanner.nextLine();
+                    String especialidades = scanner.nextLine();
                     System.out.println("Digite o dia");
                     String dia = scanner.nextLine().toString();
                     System.out.println("Digite o horario");
                     String horario = scanner.nextLine().toString();
-                    agendamento.agendar(nome, dia, horario, especialidade);
+                    agendamento.agendar(nome, dia, horario, especialidades);
                     System.out.println("Consulta agendada com sucesso.");
 
 
@@ -417,14 +423,14 @@ public class Main {
                     System.out.println("Digite o nome do cliente");
                     String nome = scanner.nextLine();
                     System.out.println("Digite a especialidade");
-                    String especialidade = scanner.nextLine();
+                    String especialidades = scanner.nextLine();
                     System.out.println("Digite o dia");
                     String dia = scanner.nextLine().toString();
                     System.out.println("Digite o horario");
                     String horario = scanner.nextLine().toString();
                     System.out.println("Digite o exame");
                     String exame = scanner.nextLine();
-                    agendamento.agendar(nome, dia, horario, especialidade, exame);
+                    agendamento.agendar(nome, dia, horario, especialidades, exame);
                     System.out.println("Exame agendado com sucesso.");
 
 
@@ -433,14 +439,14 @@ public class Main {
                     System.out.println("Digite o nome do cliente");
                     String nome = scanner.nextLine();
                     System.out.println("Digite a especialidade");
-                    String especialidade = scanner.nextLine();
+                    String especialidades = scanner.nextLine();
                     System.out.println("Digite o dia");
                     String dia = scanner.nextLine().toString();
                     System.out.println("Digite o horario");
                     String horario = scanner.nextLine().toString();
                     System.out.println("Digite o tipo de cirurgia");
                     String cirurgia = scanner.nextLine();
-                    agendamento.agendar(nome, dia, horario, especialidade, cirurgia);
+                    agendamento.agendar(nome, dia, horario, especialidades, cirurgia);
                     System.out.println("Cirurgia agendada com sucesso.");
 
 

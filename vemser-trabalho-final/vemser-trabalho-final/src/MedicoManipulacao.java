@@ -26,7 +26,7 @@ public class MedicoManipulacao implements Manipulacao {
 
     public void listar() {
         for (int i = 0; i < listaDeMedico.size(); i++) {
-            System.out.println("id=" + i + " | " + " Nome: " +  listaDeMedico.get(i).getNome() + " | " + " Codigo do administrativo: " + listaDeMedico.get(i).getCrm() +  " Enderço: "  + listaDeMedico.get(i).getEndereco() + " | " + " telefone: " + listaDeMedico.get(i).getTelefone());
+            System.out.println("id=" + i + " | " + " Nome: " +  listaDeMedico.get(i).getNome() + " | " + " CRM do médico: " + listaDeMedico.get(i).getCrm() +  " Enderço: "  + listaDeMedico.get(i).getEndereco() + " | " + " telefone: " + listaDeMedico.get(i).getTelefone());
         }
     }
 }
