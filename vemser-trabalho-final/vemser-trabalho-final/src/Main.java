@@ -15,7 +15,7 @@ public class Main {
             if (escolha == 0) {
                 int escolhaTipoDeCadastro = -1;
                 while (escolhaTipoDeCadastro != 9) {
-                    System.out.println("Digite 0 para cadastrar Usuários\n" + "Digite 1 para cadastar Convenio\n" + "Digite 2 para cadastrar Especialidades médicas.\nDigite 9 para sair.");
+                    System.out.println("Digite 0 para cadastrar Usuários\n" + "Digite 1 para cadastar Convênio\n" + "Digite 2 para cadastrar Especialidades médicas.\nDigite 9 para sair.");
                     escolhaTipoDeCadastro = scanner.nextInt();
                     scanner.nextLine();
                     if (escolhaTipoDeCadastro == 0) {
@@ -57,6 +57,8 @@ public class Main {
                                             convenio.setTaxaDeAbatimentoNaConsulta(scanner.nextDouble());
                                             clienteManipulacao.adicionar(pessoa);
                                             convenioManipulacao.adicionar(convenio);
+                                            System.out.println("Cliente adicionado com sucesso.");
+
                                             break;
                                         case 2:
                                             clienteManipulacao.listar();
@@ -77,12 +79,14 @@ public class Main {
                                             System.out.println("Digite o telefone");
                                             pessoaNova.setTelefone(scanner.nextLine());
                                             clienteManipulacao.editar(index, pessoaNova);
+                                            System.out.println("Cliente editado com sucesso.");
                                             break;
                                         case 4:
                                             System.out.println("Qual cliente você deseja excluir?");
                                             clienteManipulacao.listar();
                                             int id = scanner.nextInt();
                                             clienteManipulacao.remover(id);
+                                            System.out.println("Cliente removido com sucesso.");
                                             break;
                                         case 9:
                                             break;
@@ -115,6 +119,7 @@ public class Main {
                                             System.out.println("Digite a mátricula da pessoa");
                                             pessoa.setCodigoDoAdministrativo(scanner.nextLine());
                                             administrativoManipulacao.adicionar(pessoa);
+                                            System.out.println("Administrativo adicionado com sucesso.");
                                             break;
                                         case 2:
                                             administrativoManipulacao.listar();
@@ -135,12 +140,14 @@ public class Main {
                                             System.out.println("Digite o telefone");
                                             pessoaNova.setTelefone(scanner.nextLine());
                                             administrativoManipulacao.editar(index, pessoaNova);
+                                            System.out.println("Administrativo editado com sucesso.");
                                             break;
                                         case 4:
                                             System.out.println("Qual administrativo você deseja excluir?");
                                             administrativoManipulacao.listar();
                                             int id = scanner.nextInt();
                                             administrativoManipulacao.remover(id);
+                                            System.out.println("Administrativo removido com sucesso.");
                                             break;
                                         case 9:
                                             break;
@@ -180,6 +187,7 @@ public class Main {
                                             scanner.nextLine();
                                             medicoManipulacao.adicionar(pessoa);
                                             especialidadesManipulacao.adicionar(especialidade);
+                                            System.out.println("Médico adicionado com sucesso.");
                                             break;
                                         case 2:
                                             medicoManipulacao.listar();
@@ -200,12 +208,15 @@ public class Main {
                                             System.out.println("Digite o telefone");
                                             pessoaNova.setTelefone(scanner.nextLine());
                                             medicoManipulacao.editar(index, pessoaNova);
+                                            System.out.println("Médico editado com sucesso.");
                                             break;
                                         case 4:
                                             System.out.println("Qual médico você deseja excluir?");
                                             medicoManipulacao.listar();
                                             int id = scanner.nextInt();
                                             medicoManipulacao.remover(id);
+                                            System.out.println("Médico excluído com sucesso.");
+
                                             break;
                                         case 9:
                                             break;
@@ -220,24 +231,26 @@ public class Main {
                     if (escolhaTipoDeCadastro == 1) {
                         int opcao = 0;
                         while (opcao != 9) {
-                            System.out.println("Digite 1 para criar convenio");
-                            System.out.println("Digite 2 para listar convenios");
-                            System.out.println("Digite 3 para editar um convenio");
-                            System.out.println("Digite 4 para excluir convenio");
+                            System.out.println("Digite 1 para criar convênio");
+                            System.out.println("Digite 2 para listar convênios");
+                            System.out.println("Digite 3 para editar um convênio");
+                            System.out.println("Digite 4 para excluir convênio");
                             System.out.println("Digite 9 para sair");
                             opcao = scanner.nextInt();
                             scanner.nextLine();
                             switch (opcao) {
                                 case 1:
                                     Convenio pessoa = new Convenio();
-                                    System.out.println("Digite o nome do convenio");
+                                    System.out.println("Digite o nome do convênio");
                                     pessoa.setNome(scanner.nextLine());
-                                    System.out.println("Digite o Codigo de verificação no orgão regulamentador");
+                                    System.out.println("Digite o codigo de verificação no orgão regulamentador");
                                     pessoa.setCadastroDoConvenioNoOragaoRegulador(scanner.nextLine());
                                     System.out.println("Digite a taxa de abatimento do plano (0 a 1)");
                                     pessoa.setTaxaDeAbatimentoNaConsulta(scanner.nextDouble());
                                     scanner.nextLine();
                                     convenioManipulacao.adicionar(pessoa);
+                                    System.out.println("Convênio adicionado com sucesso.");
+
                                     break;
                                 case 2:
                                     convenioManipulacao.listar();
@@ -249,19 +262,23 @@ public class Main {
                                     scanner.nextLine();
 
                                     Convenio pessoaNova = new Convenio();
-                                    System.out.println("Digite o novo nome do convenio");
+                                    System.out.println("Digite o novo nome do convênio");
                                     pessoaNova.setNome(scanner.nextLine());
                                     System.out.println("Digite o código de verificação no orgão regulamentador");
                                     pessoaNova.setCadastroDoConvenioNoOragaoRegulador(scanner.nextLine());
                                     System.out.println("Digite a taxa de abatimento (0 a 1)");
                                     pessoaNova.setTaxaDeAbatimentoNaConsulta(scanner.nextDouble());
                                     convenioManipulacao.editar(index, pessoaNova);
+                                    System.out.println("Convênio editado com sucesso.");
+
                                     break;
                                 case 4:
-                                    System.out.println("Qual cliente você deseja excluir?");
+                                    System.out.println("Qual convênio você deseja excluir?");
                                     convenioManipulacao.listar();
                                     int id = scanner.nextInt();
                                     convenioManipulacao.remover(id);
+                                    System.out.println("Convênio removido com sucesso.");
+
                                     break;
                                 case 9:
                                     break;
@@ -292,6 +309,8 @@ public class Main {
                                     pessoa.setValor(scanner.nextDouble());
                                     scanner.nextLine();
                                     especialidadesManipulacao.adicionar(pessoa);
+                                    System.out.println("Especialidade adicionada com sucesso.");
+
                                     break;
                                 case 2:
                                     especialidadesManipulacao.listar();
@@ -308,12 +327,16 @@ public class Main {
                                     System.out.println("Digite o valor da consulta da especialidade");
                                     pessoaNova.setValor(scanner.nextDouble());
                                     especialidadesManipulacao.editar(index, pessoaNova);
+                                    System.out.println("Especialidade editada com sucesso.");
+
                                     break;
                                 case 4:
                                     System.out.println("Qual cliente você deseja excluir?");
                                     especialidadesManipulacao.listar();
                                     int id = scanner.nextInt();
                                     especialidadesManipulacao.remover(id);
+                                    System.out.println("Especialidade removida com sucesso.");
+
                                     break;
                                 case 9:
 
@@ -386,6 +409,8 @@ public class Main {
                     System.out.println("Digite o horario");
                     String horario = scanner.nextLine().toString();
                     agendamento.agendar(nome, dia, horario, especialidade);
+                    System.out.println("Consulta agendada com sucesso.");
+
 
                 }
                 if (escolhaAgenda == 2){
@@ -400,6 +425,8 @@ public class Main {
                     System.out.println("Digite o exame");
                     String exame = scanner.nextLine();
                     agendamento.agendar(nome, dia, horario, especialidade, exame);
+                    System.out.println("Exame agendado com sucesso.");
+
 
                 }
                 if (escolhaAgenda == 3){
@@ -414,6 +441,8 @@ public class Main {
                     System.out.println("Digite o tipo de cirurgia");
                     String cirurgia = scanner.nextLine();
                     agendamento.agendar(nome, dia, horario, especialidade, cirurgia);
+                    System.out.println("Cirurgia agendada com sucesso.");
+
 
                 }
                 if (escolhaAgenda == 4){
@@ -427,6 +456,8 @@ public class Main {
                     String cirurgia = scanner.nextLine();
                     String tratamento = "Tratamento especial";
                     agendamento.agendar(tratamento, nome, dia, horario, cirurgia);
+                    System.out.println("Tratamento especial agendado com sucesso.");
+
                 }
                 agendamento.imprimirAgendamentos();
             }
